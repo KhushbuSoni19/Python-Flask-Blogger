@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!-- Page Header -->
+
+    <header class="masthead" style="background-image: url('/static/img/a.jpg') ">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <span class="subheading"><h1>Admin Panel </h1>
+              <h5>We can Upload Posts & change them.</h5>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <body>
+      <div style="margin-left: 150px; margin-right: 150px;">
+      <h1>Basic Actions</h1>
+      <hr>
+      <a href="/edit/0"><button  class = "btn btn-primary">Add Post</button></a>&emsp;&emsp;
+      <a href="/Logout"><button  class = "btn btn-primary float-right" >Logout</button></a>&emsp;&emsp;
+      <a href="/dashboard"><button  class = "btn btn-primary ">Dashboard Home</button></a>&emsp;&emsp;
+
+      <hr>
+        <h1>Edit/Add posts</h1>
+      <hr>
+        <form action="/edit/{{ Sno }}" method="POST">
+          <!--
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Sno</label>
+                <input type="number" class="form-control" placeholder="Sno" id="sno" name="Sno" required>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>-->
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Title</label>
+                <input type="text" class="form-control" placeholder="Title" id="title" name = "title" value="{{ post.title }}" required>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Content</label>
+                <input type="text" class="form-control" placeholder="content" id="content" name="content" value="{{ post.content }}" required>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+<!--            <div class="control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                  <label>slug</label>
+                  <input type="text" class="form-control" placeholder="slug" id="slug" name="slug" value="{{ post.slug }}" required>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+-->              <div class="control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                  <label>img_file</label>
+
+                  <input type="text" class="form-control" placeholder="img_file" id="img_file" name="img_file" value="{{ post.img_file }}">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+<!--                <div class="control-group">
+                <div class="form-group col-xs-12 floating-label-form-group controls">
+                  <label>DateTime</label>
+                  <input type="date" class="form-control" placeholder="DateTime" id="DateTime" name="DateTime" value="{{ post.DateTime }}" required>
+                  <p class="help-block text-danger"></p>
+                </div>
+                </div>
+-->        <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+             <!-- <button formaction="/edit/0" class = "btn btn-primary">Add Post</button></a>-->
+          </div>
+          </form> </div>
+    </body>
+    {% endblock %}

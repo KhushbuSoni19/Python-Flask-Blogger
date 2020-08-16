@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!-- Page Header -->
+        
+    <header class="masthead" style="background-image: url('/static/img/a.jpg') ">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <span class="subheading"><h1>Admin Panel </h1>
+              <h5>We can Upload Posts & change them.</h5>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <body> 
+      <div style="margin-left: 150px; margin-right: 150px;">
+        <h1>Basic Actions</h1>
+        <hr>
+        <a href="/edit/0"><button  class = "btn btn-primary">Add Post</button></a>
+        <a href="/Logout"><button  class = "btn btn-primary float-right">Logout</button></a>
+        <hr>
+        <h1>Upload Files Here </h1>
+        <form action="/uploader" method="POST" enctype="multipart/form-data" >
+        <input type="file" name = "file1">
+        <button type="submit" class = "btn btn-primary">submit</button>
+      </form>
+        <hr>
+        <h1>Edit Posts </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Sno</th>
+          <th scope="col">title</th>
+          <th scope="col">date</th>
+          <th scope="col">edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+      {%  for post in mypost %}
+        <tr >
+          <td>{{ post.Sno }}</td>
+          <td>{{post.title}}</td>
+          <td>{{ post.DateTime }}</td>
+          <td><a href="/edit/{{post.Sno}}"><button  class = "btn btn-primary">Edit</button></a></td>
+          <td><a href="/delete/{{post.Sno}}"><button class = "btn btn-primary">Delete</button></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+        </table>
+        </div>
+        </body>
+
+    {% endblock %}

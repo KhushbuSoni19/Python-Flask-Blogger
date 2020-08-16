@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!-- Page Header -->
+    <header class="masthead">
+      <div class="overlay" style="background-image:url(static/img/)"></div>
+
+
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="post-preview">
+                <div class="page-heading">
+
+                <h1 style="color: white;">
+              {{mypost.title}}</h1>
+            <div class="post-preview">
+               <span class="meta"> Posted by <br>
+                <a href="#">Admin</a>
+                <p>on {{mypost.DateTime}}</p></span>
+            </div>
+          </div>
+          </div>
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div>
+          {{mypost.content}}
+                         <hr>
+        </div>
+      </div>
+    </div>
+   {% endblock %}

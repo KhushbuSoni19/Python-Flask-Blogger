@@ -1,0 +1,13 @@
+{
+    "params" :
+    {
+        "local_server" : "True",
+        "local_URI" : "mysql://root:@localhost/blogger" ,
+        "prod_URI" : "mysql://root:@localhost/blogger",
+        "no_of_posts" : 2,
+        "gmail-user":"yourgmail@gmail.com",
+        "gmail-password" : "ABCD",
+        "admin_username":  "khushbu@123" ,
+        "admin_password": "khushbu",
+        "file_upload_location" : "E:\\PYTHON- FLASK\\Blogger\\static\\Uploaded_files"        }
+}

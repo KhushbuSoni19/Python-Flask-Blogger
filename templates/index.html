@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/static/img/a.jpg') ">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <span class="subheading"><h1>Welcome to </h1>
+              <h2>KS Technopedia</h2>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          {%  for post in mypost %}
+
+        <div class="post-preview">
+
+        <a href="/post/{{ post.Sno }}">
+       <!-- <a href="/post">
+      --> <h1 class="post-title" >{{ post.title }}</h1>
+
+          <p class="post-meta">Posted by
+          <a href="#">Admin</a> on
+            {{  post.DateTime }}</p>
+          </div>
+            {{ post.content[0:100] }}..............
+          <hr>
+        </a> 
+          {% endfor %}
+          <!-- Pager -->
+          <div class="clearfix">
+            <a class="btn btn-primary float-left" href="{{ prev }}"> &larr; Newer Posts</a>
+            <a class="btn btn-primary float-right" href="{{ next }}">Older Posts &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
